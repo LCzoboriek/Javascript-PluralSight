@@ -14,64 +14,62 @@
   <button onclick="labelSample();">Labeled statement</button>
 
   <script>
+
     'use strict';
+
+    function forinSample(){
+      let product = {
+        "productID" : 680,
+        "name": "HL Road Frame",
+        "color": "black",
+        "standardCost": 1059,
+        "listPrice": 1431,
+        calculateGrossProfit: function () {
+          return this.listPrice - this.standardCost;
+        }
+      }
+
+      for (const key in product) //   the in keyword grabs all the propertys and method names from an obect and this will iterate over them with the for keyword
+      {
+        console.log("'" + key + "'=" + product[key]);
+      }
+    };
 
     let _products = [
       {
         "productID": 680,
-        "name": "HL Road Frame - Black, 58",
+        "name": "HL Road Frame",
         "productNumber": "FR-R92B-58",
         "color": "Black",
-        "standardCost": 1059.31,
-        "listPrice": 1431.50
+        "standardCost": 1059.01,
+        "listPrice": 1431
       },
       {
-        "productID": 707,
-        "name": "Sport-100 Helmet, Red",
-        "productNumber": "HL-U509-R",
-        "color": "Red",
-        "standardCost": 13.08,
-        "listPrice": 34.99
+        "productID": 720,
+        "name": "BL Roard Frame",
+        "productNumber": "GG-REPA-78",
+        "color": "Black",
+        "standardCost": 15,
+        "listPrice": 18
       },
       {
-        "productID": 709,
-        "name": "Mountain Bike Socks, M",
-        "productNumber": "SO-B909-M",
-        "color": "White",
-        "standardCost": 3.3963,
-        "listPrice": 9.50
+        "productID": 720,
+        "name": "BL Roard Frame",
+        "productNumber": "GG-REPA-78",
+        "color": "Black",
+        "standardCost": 1059.01,
+        "listPrice": 1431
       }
     ];
 
-    // Using a for/in loop
-    function forinSample() {
-      let product = {
-        "productID": 680,
-        "name": "HL Road Frame - Black, 58",
-        "productNumber": "FR-R92B-58",
-        "color": "Black",
-        "standardCost": 1059.31,
-        "listPrice": 1431.50,
-        calculateGrossProfit: function () {
-          return this.listPrice - this.standardCost;
-        }
-      };
-
-      for (const key in product) {
-        console.log("'" + key + "'=" + product[key]);
-      }
-    }
-
-    // Using a for/of loop
     function forofSample() {
-      for (const item of _products) {
+      for (const item of _products){ // The of keyword keeps track of which item in the array is currently being accessed
         console.log(JSON.stringify(item));
       }
     }
 
-    // Looping over a string
-    function loopStringSample() {
-      let productName = "HL Road Frame - Black, 58";
+    function loopStringSample(){
+      let productName = "HL Road Frame"; // Strings are iterable objects
       let letters = "";
 
       for (const char of productName) {
@@ -80,17 +78,15 @@
       console.log(letters);
     }
 
-    // Use the break statement
     function breakSample() {
       for (const item of _products) {
-        if (item.standardCost < 20) {
+        if (item.standardCost < 20){
           break;
         }
         console.log(JSON.stringify(item));
       }
     }
 
-    // Use the continue statement
     function continueSample() {
       for (const item of _products) {
         if (item.standardCost > 1000) {
@@ -100,18 +96,7 @@
       }
     }
 
-    // Use of a label.
-    // NOTE: I don't recommend use of labels as this leads to spaghetti code
-    function labelSample() {
-      even:
-      for (let index = 1; index <= 10; index++) {
-        if (index % 2 == 1) {
-          continue even;
-        }
-        console.log(index);
-      }
-    }
-  </script>
+   </script> 
 </body>
 
 </html>
