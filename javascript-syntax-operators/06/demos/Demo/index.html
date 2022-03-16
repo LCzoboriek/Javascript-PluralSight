@@ -26,7 +26,7 @@
       try {
         result = x / 10;
       } catch (error) {
-        console.log(error.message);
+        console.log(error.message); // Log it locally, or push it back up to the server
       }
     }
 
@@ -81,7 +81,7 @@
         throw {
           "message": "In the attemptDivision() method the following error occurred: " + error.message,
           "name": "CustomError"
-        };
+        }; // Heres where you add the two object properties, message and name, it adds clarity to error handling
       }
     } 
 	
